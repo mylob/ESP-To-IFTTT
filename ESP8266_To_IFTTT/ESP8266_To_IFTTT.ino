@@ -63,7 +63,7 @@ void loop() {
         debugln("Connected To Maker");
         event.post();
       }
-      else debugln("Failed To Connect To Wifi!");
+      else debugln("Failed To Connect To Maker!");
     }
     delay(1000); // pause for 1 second
     digitalWrite(HEARTBEAT_PIN, !digitalRead(HEARTBEAT_PIN));
