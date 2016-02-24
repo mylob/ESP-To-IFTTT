@@ -104,7 +104,7 @@ void DataToMaker::compileData()
     if (value3 != "")
     {
       if (valueEntered)postData.concat("\",");
-      postData.concat("\",\"value3\":\"");
+      postData.concat("\"value3\":\"");
       postData.concat(value3);
     }
     postData.concat("\"}");
