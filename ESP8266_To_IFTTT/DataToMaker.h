@@ -45,6 +45,7 @@ void DataToMaker::post()
   client.print("/with/key/");
   client.print(privateKey);
   client.println(" HTTP/1.1");
+
   client.println("Host: maker.ifttt.com");
   client.println("User-Agent: Arduino/1.0");
   client.println("Connection: close");
@@ -56,6 +57,8 @@ void DataToMaker::post()
     client.println();
     client.println(postData);
   }
+  else
+    client.println();
 }
 
 bool DataToMaker::setValue(int valueToSet, String value)
@@ -101,11 +104,10 @@ void DataToMaker::compileData()
     if (value3 != "")
     {
       if (valueEntered)postData.concat("\",");
-      postData += "\",\"value3\":\"";
-      postData += value3;
+      postData.concat("\",\"value3\":\"");
+      postData.concat(value3);
     }
-    postData += "\"";
-    postData += "}";
+    postData.concat("\"}");
   }
   else dataAvailable = false;
 }
